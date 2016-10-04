@@ -1,2 +1,2 @@
 # linuxce
-Trabalhos realiazados para o grupo linuxce
+Trabalhos realizados para o grupo linuxce
