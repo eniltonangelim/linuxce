@@ -66,4 +66,4 @@
 
 #### Case 2: Criando um novo arquivo
 
-> Para o nosso segundo caso, vou criar um arquivo 
+> Para o nosso segundo caso, vou criar um arquivo
