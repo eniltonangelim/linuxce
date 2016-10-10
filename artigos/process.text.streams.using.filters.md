@@ -199,5 +199,4 @@
  + Variável _$$_
  + Expansão {..}
 
-
-Todo: conceituar; adicionar marcação de código; glossário
+`Todo: conceituar; adicionar marcação de código; glossário`
