@@ -40,6 +40,7 @@
 > Exibe o conte&uacute;do do arquivo _/proc/__$$__/limits_
 
 > Comando: `cat /proc/$$/limits`
+
 > Saída: 
 `Limit                     Soft Limit           Hard Limit           Units
 
