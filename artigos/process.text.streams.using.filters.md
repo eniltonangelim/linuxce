@@ -42,38 +42,23 @@
 > Comando: `cat /proc/$$/limits`
 
 > Saída: 
-`Limit                     Soft Limit           Hard Limit           Units
 
-Max cpu time              unlimited            unlimited            seconds
-
-Max file size             unlimited            unlimited            bytes
-
-Max data size             unlimited            unlimited            bytes
-
-Max stack size            8388608              unlimited            bytes
-
-Max core file size        0                    unlimited            bytes
-
-Max resident set          unlimited            unlimited            bytes
-
-Max processes             31135                31135                processes
-
-Max open files            1024                 65536                files
-
-Max locked memory         65536                65536                bytes
-
-Max address space         unlimited            unlimited            bytes
-
-Max file locks            unlimited            unlimited            locks
-
-Max pending signals       31135                31135                signals
-
-Max msgqueue size         819200               819200               bytes
-
-Max nice priority         0                    0
-
-Max realtime priority     0                    0
-
+`Limit                     Soft Limit           Hard Limit           Units <br />
+Max cpu time              unlimited            unlimited            seconds <br />
+Max file size             unlimited            unlimited            bytes <br />
+Max data size             unlimited            unlimited            bytes <br />
+Max stack size            8388608              unlimited            bytes <br />
+Max core file size        0                    unlimited            bytes <br />
+Max resident set          unlimited            unlimited            bytes <br />
+Max processes             31135                31135                processes <br />
+Max open files            1024                 65536                files <br />
+Max locked memory         65536                65536                bytes <br />
+Max address space         unlimited            unlimited            bytes <br />
+Max file locks            unlimited            unlimited            locks <br />
+Max pending signals       31135                31135                signals <br />
+Max msgqueue size         819200               819200               bytes <br />
+Max nice priority         0                    0 <br />
+Max realtime priority     0                    0 <br />
 Max realtime timeout      unlimited            unlimited            us`
 
 ### Caso 2: Criando um novo arquivo
