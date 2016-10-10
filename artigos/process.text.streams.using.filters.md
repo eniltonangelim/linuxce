@@ -68,7 +68,7 @@
 
 > Oldtimes
 
->> cat >/tmp/teste <<EOF [enter]<br />
+>> cat >/tmp/teste <\<EOF [enter]<br />
 >> escreva qualquer coisa<br />
 >> EOF<br />
 
