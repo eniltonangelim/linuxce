@@ -33,7 +33,9 @@
 
 > O comando __cat__ tem como principal funcionalidade a impress&atilde;o do conte&uacute;do contido no arquivo, a partir dessa funcionalidade voc&ecirc;.
 
-### Caso 1: Ler o texto na tela
+> (...)
+
+### Caso 1: Imprimindo o texto na tela
 
 > Exibe o conte&uacute;do do arquivo _/proc/__$$__/limits_
 
