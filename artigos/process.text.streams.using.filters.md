@@ -68,7 +68,7 @@
 
 > Oldtimes
 
->> cat >/tmp/teste <<EOF [enter]<br />
+>> cat >/tmp/teste <\<EOF [enter]<br />
 >> escreva qualquer coisa<br />
 >> EOF<br />
 
@@ -87,11 +87,11 @@
 >>> -rw-rw-r-- 1 enilton enilton 411 Out 10 11:49 mtab.gzip-aa<br />
 >>> -rw-rw-r-- 1 enilton enilton 411 Out 10 11:49 mtab.gzip-ab<br />
 
-> Removendo a referência mtab.gzip do sistema de arquivos
+> Remove a referência mtab.gzip do sistema de arquivos
 
 >> rm mtab.gzip
 
-> Concatenando os arquivos mtab.gzip-a{a,b}
+> Concatena os arquivos mtab.gzip-a{a,b}
 
 >> cat /tmp/mtab.gzip-a{a,b} > /tmp/mtab.gzip ou cat /tmp/mtab.gzip-aa /tmp/mtab.gzip-ab  > /tmp/mtab.gzip<br />
 >> file /tmp/mtab.gzip<br />
@@ -99,12 +99,12 @@
 
 ### Caso 4: Descompactando o arquivo mtab.gzip 
 
-> Descompactar o arquivo e exibir o conteúdo na tela
+> Descompactando o arquivo
 
 >> cat mtab.gzip | gunzip --suffix=.gzip -<br />
 >>> ...<br />
 
-> Descompactar o arquivo e redirecionar o conteúdo para outro arquivo
+> Descompactando o arquivo, redirecionando a saída para outro arquivo
 
 >> cat mtab.gzip | gunzip --suffix=.gzip  -  > /tmp/mtab<br />
 
@@ -200,6 +200,7 @@
  + file
  + echo -e
  + exec
-
+ + Variável _$$_
+ + Expansão {..}
 
 
