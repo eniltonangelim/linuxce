@@ -31,13 +31,7 @@
 
 ## Concatenando, imprimindo, substituindo e filtrando.
 
-> O comando __cat__ tem como principal funcionalidade a impress&atilde;o do conte&uacute;do contido no arquivo, a partir dessa funcionalidade voc&ecirc; consegue realizar os procedimentos a seguir:
-
->> + Exibe o texto na tela
->> + Ler arquivos
->> + Cria um novo arquivo
->> + __Concatenar__ os arquivos
->> + Modificar um arquivo
+> O comando __cat__ tem como principal funcionalidade a impress&atilde;o do conte&uacute;do contido no arquivo, a partir dessa funcionalidade voc&ecirc;.
 
 ### Caso 1: Ler o texto na tela
 
