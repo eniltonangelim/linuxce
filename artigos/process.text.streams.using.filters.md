@@ -8,7 +8,6 @@
 
 ## Termos e Utilit&aacute;rios
 
-
  + /bin/cat [ok]
  + /usr/bin/cut
  + expand
@@ -43,8 +42,6 @@
 
 
 ## Utilit&aacute;rios
-
-> Dica: Um diretório também é um arquivo, mas um tipo especial. É um contêiner que contém os inodes dos _"filhos"_.
 
 ### CAT -  Concatena arquivos para saída padrão
 
