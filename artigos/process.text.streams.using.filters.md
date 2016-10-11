@@ -108,7 +108,19 @@ Opções:
  + -t|--targed-paragraph : Indentation a primeira linha de forma diferente da segunda linha do parágrafo
  + -u|--uniform-spacing  : Usa um espaço entre palavras, dois espaços após a sentença
 
+### HEAD - Imprime o cabeçalho do arquivo na saída padrão 
 
+Sintaxe:
+
+``` bash
+
+    /usr/bin/head {(opção),..} {[arquivo],..}
+
+```
+
+Opções:
+
+ + -n: Especifique o número de linhas do cabeçalho 
 
 
 ## Concatenando, imprimindo, substituindo e filtrando
