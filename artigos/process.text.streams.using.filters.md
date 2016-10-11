@@ -55,11 +55,11 @@ Sintaxe:
 
 Opções:
 
-    + -v : Mostra os símbolos não-imprimíveis
-    + -E : Mostra o símbolo *$* no final da linha
-    + -T : Mostra o símbolo *^I* para identificar uma tabulação
-    + -e : equivalente para -vE
-    + -t : equivalente para -vT
+ + -v : Mostra os símbolos não-imprimíveis
+ + -E : Mostra o símbolo *$* no final da linha
+ + -T : Mostra o símbolo *^I* para identificar uma tabulação
+ + -e : equivalente para -vE
+ + -t : equivalente para -vT
 
 ### CUT - Imprime as partes selecionadas da linha de cada arquivos para a saída padrão
 
@@ -73,9 +73,9 @@ Sintaxe:
 
 Opções:
 
-    + -d : Use um delimitador diferente de tabulação
-    + -f : Use para selecionar a lista de campos
-    + --output-delimiter=STR : Substitua o delimitador na saída
+ + -d : Use um delimitador diferente de tabulação
+ + -f : Use para selecionar a lista de campos
+ + --output-delimiter=STR : Substitua o delimitador na saída
 
 ### EXPAND - Converte tabulação em espaço
 
@@ -90,7 +90,7 @@ Sintaxe:
 
 Opções:
 
-    + -t, --tabs=N : Define a quantidade de espaços em vez do valor, padrão, 8.
+ + -t, --tabs=N : Define a quantidade de espaços em vez do valor, padrão, 8.
 
 
 ## Concatenando, imprimindo, substituindo e filtrando
@@ -140,7 +140,7 @@ Comando:
 
 ``` bash
 
-    /bin/cat >/tmp/teste <\<EOF [enter]
+    /bin/cat >/tmp/teste <<EOF [enter]
     escreva qualquer coisa
     EOF
 
