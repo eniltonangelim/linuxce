@@ -9,41 +9,107 @@
 ## Termos e Utilit&aacute;rios
 
 
- + cat [ok]
- + cut
+ + /bin/cat [ok]
+ + /usr/bin/cut
  + expand
  + fmt
- + head [ok]
+ + /usr/bin/head [ok]
  + join
  + less
  + nl
- + od [ok]
+ + /usr/bin/od [ok]
  + paste
  + pr
- + sed [ok]
+ + /bin/sed [ok]
  + sort
- + split [ok]
+ + /usr/bin/split [ok]
  + tail
  + tr
  + unexpand
  + uniq
  + wc
 
-## Concatenando, imprimindo, substituindo e filtrando.
+## Sobre o conteúdo
 
-O comando __cat__ tem como principal funcionalidade a impress&atilde;o do conte&uacute;do contido no arquivo, a partir dessa funcionalidade voc&ecirc;.
+> Nesse artigo pretendo ser objetivo no desenvolvimento do conteúdo, criando exemplos práticos e aplicáveis na rotina de trabalho.
 
-(...)
+> Os itens da lista termos e utilitários não serão apresentandos isoladamente; execute atentamente o bloco de comandos.
+
+> Dicas:
+
+ + Execute o bloco de comando;
+ + Faça um autoquestionamento sobre o que entendeu e o que não entendeu;
+ + Se não entender uma sequencia de comandos, remova da esquerda para direita um comando de cada vez;
+
+
+## Utilit&aacute;rios
+
+> Dica: Um diretório também é um arquivo, mas um tipo especial. É um contêiner que contém os inodes dos _"filhos"_.
+
+### CAT -  Concatena arquivos para saída padrão
+
+Sintaxe:
+
+``` bash
+
+    /bin/cat {(opção),..}  {[arquivo],..}
+
+```
+
+Opções:
+
+    + -v : Mostra os símbolos não-imprimíveis
+    + -E : Mostra o símbolo *$* no final da linha
+    + -T : Mostra o símbolo *^I* para identificar uma tabulação
+    + -e : equivalente para -vE
+    + -t : equivalente para -vT
+
+### CUT - Imprime as partes selecionadas da linha de cada arquivos para a saída padrão
+
+Sintaxe:
+
+```bash
+
+    /usr/bin/cut {(opção),..} {[arquivo],..}
+
+```
+
+Opções:
+
+    + -d : Use um delimitador diferente de tabulação
+    + -f : Use para selecionar a lista de campos
+    + --output-delimiter=STR : Substitua o delimitador na saída
+
+### EXPAND - Converte tabulação em espaço
+
+
+Sintaxe:
+
+```bash
+
+    /usr/bin/expand {(opção),..} {[arquivo],..}
+
+```
+
+Opções:
+
+    + -t, --tabs=N : Define a quantidade de espaços em vez do valor, padrão, 8.
+
+
+## Concatenando, imprimindo, substituindo e filtrando
+
+> Quero diminuir a curva de aprendizado, mas sem perder a qualidade do conteúdo. Então, vamos explorar o máximo possível as funcionalidades que esta sessão nos permite.
+
 
 ### Caso 1: Imprimindo o texto na tela
 
-Exibe o conte&uacute;do do arquivo _/proc/__$$__/limits_
+O uso básico do comando _/bin/cat_ permite-nos acessar o conteúdo do arquivo _/proc/__$$__/limits_ para leitura na tela
 
 Comando:
 
 ``` bash
 
-    cat /proc/$$/limits
+    /bin/cat /proc/$$/limits
 
 ```
 
@@ -77,7 +143,7 @@ Comando:
 
 ``` bash
 
-    cat >/tmp/teste <\<EOF [enter]
+    /bin/cat >/tmp/teste <\<EOF [enter]
     escreva qualquer coisa
     EOF
 
@@ -91,7 +157,7 @@ Comando:
 
 ``` bash
 
-    cat /etc/mtab  | gzip -  > /tmp/mtab.gzip
+    /bin/cat /etc/mtab  | gzip -  > /tmp/mtab.gzip
 
 ```
 
@@ -99,7 +165,7 @@ Comando:
 
 ``` bash
 
-    file /tmp/mtab.gzip
+    /usr/bin/file /tmp/mtab.gzip
 
 ```
 
@@ -117,7 +183,7 @@ Comando:
 
 ``` bash
 
-    split -n 2 /tmp/mtab.gzip  mtab.gzip-
+    /usr/bin/split -n 2 /tmp/mtab.gzip  mtab.gzip-
 
 ```
 
@@ -156,7 +222,7 @@ Comando:
 
 ``` bash
 
-    cat /tmp/mtab.gzip-a{a,b} > /tmp/mtab.gzip ou cat /tmp/mtab.gzip-aa /tmp/mtab.gzip-ab  > /tmp/mtab.gzip
+    /bin/cat /tmp/mtab.gzip-a{a,b} > /tmp/mtab.gzip ou cat /tmp/mtab.gzip-aa /tmp/mtab.gzip-ab  > /tmp/mtab.gzip
 
 ```
 
@@ -166,7 +232,7 @@ Comando:
 
 ``` bash
 
-    file /tmp/mtab.gzip
+    /usr/bin/file /tmp/mtab.gzip
 
 ```
 
@@ -186,7 +252,7 @@ Comando:
 
 ``` bash
 
-    cat mtab.gzip | gunzip --suffix=.gzip -
+    /bin/cat mtab.gzip | gunzip --suffix=.gzip -
 
 ```
 
@@ -238,7 +304,7 @@ Comando:
 
 ``` bash
 
-    cat mtab.gzip | gunzip --suffix=.gzip  -  > /tmp/mtab
+    /bin/cat mtab.gzip | gunzip --suffix=.gzip  -  > /tmp/mtab
 
 ```
 
@@ -301,7 +367,7 @@ Comando:
 
 ``` bash
 
-    cat /tmp/mtab.gzip | gunzip --suffix=.gzip - | head -n 1 | sed 's/$/\r/g;s/ / _\t_\r/g'  > /tmp/mtab
+    /bin/cat /tmp/mtab.gzip | gunzip --suffix=.gzip - | /usr/bin/head -n 1 | /bin/sed 's/$/\r/g;s/ / _\t_\r/g'  > /tmp/mtab
 
 ```
 
@@ -311,7 +377,7 @@ Comando:
 
 ``` bash
 
-    cat /tmp/mtab
+    /bin/cat /tmp/mtab
 
 ```
 
@@ -329,7 +395,7 @@ Comando:
 
 ``` bash
 
-    cat -E /tmp/mtab
+    /bin/cat -E /tmp/mtab
 
 ```
 
@@ -351,7 +417,7 @@ Comando:
 
 ``` bash
 
-    cat -ET /tmp/mtab
+    /bin/cat -ET /tmp/mtab
 
 ```
 
@@ -371,7 +437,7 @@ Comando:
 
 ``` bash
 
-    cat -vET /tmp/mtab
+    /bin/cat -vET /tmp/mtab
 
 ```
 
@@ -387,7 +453,7 @@ Comando:
 
 ``` bash
 
-    cat /tmp/mtab | od -c
+    /bin/cat /tmp/mtab | /usr/bin/od -c
 
 ```
 
@@ -411,7 +477,7 @@ Comado:
 
 ``` bash
 
-    sed -r -i  's/(\t)?\r//g' /tmp/mtab
+    /bin/sed -r -i  's/(\t)?\r//g' /tmp/mtab
 
 ```
 
@@ -419,7 +485,7 @@ Comando:
 
 ``` bash
 
-    cat /tmp/mtab
+    /bin/cat /tmp/mtab
 
 ```
 
@@ -435,7 +501,7 @@ Comando:
 
 ``` bash
 
-    cat /tmp/mtab | od -c
+    /bin/cat /tmp/mtab | od -c
 
 ```
 
@@ -453,16 +519,16 @@ Retorno:
 
 > lista de comandos:
 
- + cut -v -E -T
- + sed -r -i
- + od -c
- + head -n
+ + /bin/cat -v -E -T
+ + /bin/sed -r -i
+ + /usr/bin/od -c
+ + /usr/bin/head -n
  + gunzip -
  + gzip -
  + ls -l
- + split -n
+ + /usr/bin/split -n
  + rm
- + file
+ + /usr/bin/file
  + echo -e
  + exec
  + Variável _$$_
