@@ -43,7 +43,7 @@
 
 ## Utilit&aacute;rios
 
-### CAT -  Concatena arquivos para saída padrão
+### CAT -  Concatena arquivos
 
 Sintaxe:
 
@@ -91,6 +91,24 @@ Sintaxe:
 Opções:
 
  + -t, --tabs=N : Define a quantidade de espaços em vez do valor, padrão, 8.
+
+### FMT - Formata e otimiza arquivo de texto
+
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/fmt (option) [file]
+
+```
+
+Opções:
+
+ + -t|--targed-paragraph : Indentation a primeira linha de forma diferente da segunda linha do parágrafo
+ + -u|--uniform-spacing  : Usa um espaço entre palavras, dois espaços após a sentença
+
+
 
 
 ## Concatenando, imprimindo, substituindo e filtrando
