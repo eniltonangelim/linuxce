@@ -10,8 +10,8 @@
 
  + /bin/cat [ok]
  + /usr/bin/cut
- + expand
- + fmt
+ + /usr/bin/expand
+ + /usr/bin/fmt
  + /usr/bin/head [ok]
  + join
  + less
@@ -122,6 +122,15 @@ Opções:
 
  + -n: Especifique o número de linhas do cabeçalho 
 
+### JOIN - Concatena de forma ordenada dois arquivos
+
+### LESS - Paginador
+
+### NL - Adiciona o número da linha
+
+### OD - Dump files in octal
+
+### 
 
 ## Concatenando, imprimindo, substituindo e filtrando
 
