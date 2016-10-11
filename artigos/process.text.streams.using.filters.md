@@ -130,7 +130,25 @@ Opções:
 
 ### OD - Dump files in octal
 
-### 
+### PASTE
+
+### PR
+
+### SED
+
+### SORT
+
+### SPLIT
+
+### TAIL
+
+### TR
+
+### UNEXPAND
+
+### UNIQ
+
+### WC
 
 ## Concatenando, imprimindo, substituindo e filtrando
 
