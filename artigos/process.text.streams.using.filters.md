@@ -55,11 +55,11 @@ Sintaxe:
 
 Opções:
 
- + -v : Mostra os símbolos não-imprimíveis
- + -E : Mostra o símbolo *$* no final da linha
- + -T : Mostra o símbolo *^I* para identificar uma tabulação
- + -e : equivalente para -vE
- + -t : equivalente para -vT
+ + -v: Mostra os símbolos não-imprimíveis
+ + -E: Mostra o símbolo *$* no final da linha
+ + -T: Mostra o símbolo *^I* para identificar uma tabulação
+ + -e: equivalente para -vE
+ + -t: equivalente para -vT
 
 ### CUT - Imprime as partes selecionadas da linha de cada arquivos para a saída padrão
 
@@ -73,9 +73,9 @@ Sintaxe:
 
 Opções:
 
- + -d : Use um delimitador diferente de tabulação
- + -f : Use para selecionar a lista de campos
- + --output-delimiter=STR : Substitua o delimitador na saída
+ + -d: Use um delimitador diferente de tabulação
+ + -f: Use para selecionar a lista de campos
+ + --output-delimiter=STR: Substitua o delimitador na saída
 
 ### EXPAND - Converte tabulação em espaço
 
@@ -90,7 +90,7 @@ Sintaxe:
 
 Opções:
 
- + -t, --tabs=N : Define a quantidade de espaços em vez do valor, padrão, 8.
+ + -t, --tabs=N: Define a quantidade de espaços em vez do valor, padrão, 8.
 
 ### FMT - Formata e otimiza arquivo de texto
 
@@ -105,10 +105,10 @@ Sintaxe:
 
 Opções:
 
- + -t|--targed-paragraph : Indentation a primeira linha de forma diferente da segunda linha do parágrafo
- + -u|--uniform-spacing  : Usa um espaço entre palavras, dois espaços após a sentença
+ + -t, --targed-paragraph: Indentation a primeira linha de forma diferente da segunda linha do parágrafo
+ + -u, --uniform-spacing: Usa um espaço entre palavras, dois espaços após a sentença
 
-### HEAD - Imprime o cabeçalho do arquivo na saída padrão 
+### HEAD - Imprime o cabeçalho do arquivo na saída padrão
 
 Sintaxe:
 
@@ -120,25 +120,143 @@ Sintaxe:
 
 Opções:
 
- + -n: Especifique o número de linhas do cabeçalho 
+ + -n: Especifique o número de linhas do cabeçalho
 
-### JOIN - Concatena de forma ordenada dois arquivos
+### JOIN - Junta as linhas de dois arquivos que compartilham um campo comum
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/join {(opção),...} {[arquivo],...}
+
+```
+
+Opções:
+
+ + -i, --ignore-case: Ignora as diferenças entre os carecteres
+ + --check-order: Se os campos estão ordenados
 
 ### LESS - Paginador
 
+``` bash
+
+    /usr/bin/less {(opção),...} [arquivo]
+
+```
+
+Opções:
+
+ Pesquisa
+
+ + /**_padrão_**: Busca normal
+ + ?**_padrão_**: Busca recursiva/inversa
+ + &/**_padrão_**: Mostra somente as linhas que combinam com o padrão
+ + n: Repete a busca anterior, buscando novas ocorrências
+
 ### NL - Adiciona o número da linha
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/nl {(opção),...} {[arquivo],..}
+
+```
+
+Opções:
+
+ + -s, --number-separator=STRING: Adiciona uma _string_ após o número da linha
+ + -v, --starting-line-number=NUMBER: Altera o valor da ordenação
 
 ### OD - Dump files in octal
 
-### PASTE
+Sintaxe:
 
-### PR
+``` bash
 
-### SED
+    /usr/bin/od {(opção),...} {[arquivo],...}
 
-### SORT
+```
+
+Opções:
+
+ + -c: Imprime os carecteres, incluindo os não imprimíveis como: espaço, tabulação.
+ + -b: Formato octal
+ + -x: Formato hexadecimal
+
+### PASTE - Unir as linhas dos arquivos
+
+Sintaxe
+
+``` bash
+
+    /usr/bin/paste {(opção),...} {[arquivo],...}
+
+```
+
+Opções:
+
+ + -d: delimitador
+ + -s: Junta todas as linhas em uma
+ + -: Uma coluna
+ + - -: Duas colunas
+ + - - -: Três colunas
+
+### PR - Converte o arquivo para o Formato padrão das impressoras
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/pr {(opção),...} {[arquivo],..}
+
+```
+
+Opções:
+
+ + -n, --number-lines[=SEP[DIGITS]]: Adiciona a numeração da linha
+ + -h, --header=HEADER: Usa o cabeçalho centralizado
+
+### SED - stream editor
+
+Sintaxe:
+
+``` bash
+
+    /bin/sed {(opção),..} {script} {[arquivo]}
+
+```
+
+Opções:
+
+ + -r: Extensão da expressão regular
+ + -i[SUFFIX], --in-place[=SUFFIX]: Edita o arquivo, criando um backup se o _SUFFIX_ for especificado
+
+### SORT - Ordena as linhas do arquivo de texto
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/sort {(opção),..} {[arquivo],..}
+
+```
 
 ### SPLIT
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/split {(opção),..} {[arquivo],..}
+
+```
+
+Opções:
+
+ + -b, --bytes=SIZE: Tamanho em bytes por arquivo
+ + -a, --suffix-length=N: Adiciona um sufixo para os arquivos
 
 ### TAIL
 
