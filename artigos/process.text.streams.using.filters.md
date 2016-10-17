@@ -90,6 +90,7 @@ Sintaxe:
 
 Opções:
 
+ + -a: Converte todos os espaços em brancos
  + -t, --tabs=N: Define a quantidade de espaços em vez do valor, padrão, 8.
 
 ### FMT - Formata e otimiza arquivo de texto
@@ -168,6 +169,7 @@ Opções:
 
  + -s, --number-separator=STRING: Adiciona uma _string_ após o número da linha
  + -v, --starting-line-number=NUMBER: Altera o valor da ordenação
+
 
 ### OD - Dump files in octal
 
@@ -257,21 +259,89 @@ Opções:
 
  + -b, --bytes=SIZE: Tamanho em bytes por arquivo
  + -a, --suffix-length=N: Adiciona um sufixo para os arquivos
+ + -n, --number=CHUNKS: Divide o arquivo em pedaços de acordo com o tamanho do arquivo
 
 ### TAIL
 
-### TR
+Sintaxe:
 
-### UNEXPAND
+``` bash
 
-### UNIQ
+    /usr/bin/tail {(opção),..} {[arquivo],..}
 
-### WC
+```
 
+Opções:
+
+ + -n, --lines=[+]NUM: Imprime às últimas NUM linhas, diferente do padrão 10. O _+_ indica a linha de inicio.
+
+### TR - Traduz ou deleta caracteres
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/tr {(opção)} expressão1 [expressão2]
+
+```
+
+Opções:
+
+ + -d: Deleta caracteres da expressão1
+ + -s: Comprime caracteres repetidos
+
+### UNEXPAND - Converte espaço em tabulação
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/unexpand {(opção),..} {[arquivo],..}
+
+```
+
+Opções:
+
+ + -a: Converte todos os espaços em brancos
+ + -t, --tabs=N: Define a quantidade de espaços em vez do valor, padrão, 8.
+
+### UNIQ - Reporta ou omite linhas repetidas
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/uniq {(opção),..} {[arquivo],..}
+
+```
+
+Opções:
+
+ + -c: Conta a quantidade de ocorrências
+ + -d: Imprime somente as linhas duplicadas, uma de cada grupo
+ + -D: Imprime todas as linhas duplicadas
+ + -u: Imprime somente as linhas que não são duplicadas
+
+### WC - Mostra o número de linhas, palavras e bytes existentes dentro de cada arquivo
+
+Sintaxe:
+
+``` bash
+
+    /usr/bin/wc {(opção),..} {[arquivo]}
+
+```
+
+Opções:
+
+ + -c, --bytes: Quantidade de bytes
+ + -l, --lines: Quantidade de linhas
+ + -w, --words: Quantidade de palavras
+ + -m, --chars: Quantidade de caracteres
+ 
 ## Concatenando, imprimindo, substituindo e filtrando
 
 > Quero diminuir a curva de aprendizado, mas sem perder a qualidade do conteúdo. Então, vamos explorar o máximo possível as funcionalidades que esta sessão nos permite.
-
 
 ### Caso 1: Imprimindo o texto na tela
 
@@ -311,110 +381,116 @@ Retorno:
 
 ### Caso 2: Criando um novo arquivo
 
+Propósito: Conhecer o bloco de código especial _here document_. Usamos o redirecionamento de entrada e saída para fornecer dados a um programa ou comando
+
 Comando:
 
 ``` bash
 
-    /bin/cat >/tmp/teste <<EOF [enter]
-    escreva qualquer coisa
+    /bin/cat >/tmp/teste << EOF [enter]
+    bloco de código foobar
     EOF
 
 ```
 
+ + \>/tmp/teste: Redirecionamento da saída padrão para o arquivo /tmp/teste
+ + << _string_: Here document
+ + EOF: Acrônimo para _End of File_, essa _string_ é responsável por limitar o bloco de código.
+ + bloco: Entrada de dados
+
+<hr>
+
+> Importante: O limitador é de livre escolha
+
+<hr>
+
 ### Caso 3: Compactando e Concatenando arquivos
 
-> Compactando
+Propósito: Praticar gerencimanto de arquivo e conhecer a função do hífen (-).
 
-Comando:
 
 ``` bash
 
-    /bin/cat /etc/mtab  | gzip -  > /tmp/mtab.gzip
+    # Redirecionamento da saída do comando cat para a entrada padrão (-) do comando gzip
+
+    /bin/cat /etc/mtab  | /bin/gzip -  > /tmp/mtab.gzip
 
 ```
 
-Comando:
-
 ``` bash
+
+    # O comando file determina o tipo do arquivo
 
     /usr/bin/file /tmp/mtab.gzip
 
-```
 
-Retorno:
-
-``` bash
+    # A saída do comando file confirma que /tmp/mtab.gzip é do tipo gzip
 
     /tmp/mtab.gzip: gzip compressed data, last modified: Mon Oct 10 14:44:12 2016, from Unix
 
 ```
 
-> Dividindo o arquivo mtab.gzip
-
-Comando:
 
 ``` bash
+
+    # O arquivo /tmp/mtab.gzip será dividido em dois.
 
     /usr/bin/split -n 2 /tmp/mtab.gzip  mtab.gzip-
 
 ```
 
-> Confira os arquivos gerado pelos comando *_split_*
-
-Comando:
 
 ``` bash
+
+    # Liste as duas partes
 
     ls -l mtab.gzip-*
-
-```
-
-Retorno:
-
-``` bash
-
     -rw-rw-r-- 1 enilton enilton 411 Out 10 11:49 mtab.gzip-aa
     -rw-rw-r-- 1 enilton enilton 411 Out 10 11:49 mtab.gzip-ab
 
 ```
 
-> Remova a referência mtab.gzip do sistema de arquivos
-
-Comando:
-
 ``` bash
+
+    # Remova a referência mtab.gzip do sistema de arquivos
 
     rm mtab.gzip
 
 ```
 
-> Concatene os arquivos mtab.gzip-a{a,b}
-
-Comando:
-
 ``` bash
+
+    # Concatenando os arquivos mtab.gzip-aa e mtab.gzip-ab para gerar o novo mtab.gzip.
 
     /bin/cat /tmp/mtab.gzip-a{a,b} > /tmp/mtab.gzip ou cat /tmp/mtab.gzip-aa /tmp/mtab.gzip-ab  > /tmp/mtab.gzip
 
 ```
 
-> Confira o tipo do novo arquivo *_mtab.gzip_*
-
-Comando:
-
 ``` bash
+
+    # Confirme o tipo do novo arquivo mtab.gzip
 
     /usr/bin/file /tmp/mtab.gzip
 
-```
-
-Retorno:
-
-``` bash
+    # A saída do comando file confirma que /tmp/mtab.gzip é do tipo gzip
 
     /tmp/mtab.gzip: gzip compressed data, last modified: Mon Oct 10 14:44:12 2016, from Unix
 
 ```
+
+<hr>
+
+> Importante: A referência do arquivo mtab.gzip deixará de existir na área de controle de dados do _filesystem_ por intermédio do Kernel, mas os dados serão preservados até serem sobrescritos.
+
+Pesquise:
+
+ + wipe
+ + foremost
+ + Sleuth Kit
+ + icat
+ + tune2fs
+
+<hr>
 
 ### Caso 4: Descompactando o arquivo mtab.gzip 
 
