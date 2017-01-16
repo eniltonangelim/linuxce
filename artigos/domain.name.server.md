@@ -147,3 +147,83 @@ dialup yes;
 
 ### A declaração logging
 
+O _channel_ especifica a saída. O _null_ channel, por exemplo, rejeita qualquer saída enviada para o _channel_.
+
+O _category_ é um tipo de dados. O category _security_ é um de muitas categorias. 
+
+Exemplo: Security
+
++ Category: Security
++ Channel: default_syslog
+
+```text
+logging { 
+    category security { default_syslog; };
+}
+```
+
+Exemplo: Desabilitar o logging
+
+```text
+logging {
+    category lame-servers { null; };
+    category cname { null ; };
+}
+```
+
+### A declaração Zone
+
+A _zone_ definida no _named.conf_ pode ser referenciada usando o simbolo "@" dentro do arquivo que corresponde a zona.
+
+Exemplo:
+
+```text
+zone "127.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.127";
+};
+```
+
+> Nota: O "@" é chamado de *_current origin_*
+
+
+## O daemon named server
+
+O _named_ é o programa que se comunica com outros servidores DNS para resolver nomes. Aceita consultas e pesquisas no cache e consultas em outros servidores de nomes.
+
+### O rndc
+
+O *_rndc_*  (*R*emote *N*ame *D*aemon *C*ontrol) é o programa para controlar o daemon *_named_* localmente e remotamente. Requer uma chave.
+
++ /etc/rndc.key
+
+```text
+key "rndc-key" {
+    algorithm hmac-md5;
+    secret "kudhfsdufhuihefdhfif==";
+};
+
+options {
+    default-key "rndc-key";
+    default-server 127.0.0.1;
+    default-port 953;
+};
+```
+
++ /etc(/bind)?/named.conf
+
+```text
+key "rndc-key" {
+    algorithm hmac-md5;
+    secret "kudhfsdufhuihefdhfif==";
+};
+
+controls {
+    inet 127.0.0.1 port 953
+        allow { 127.0.0.1; } keys { "rndc-key"; };
+};
+```
+
+
+
+
